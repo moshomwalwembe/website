@@ -17,6 +17,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
+        darkMode: 'class',
         theme: {
           extend: {
             colors: {
@@ -46,6 +47,16 @@
         },
       };
     </script>
+    <script>
+      // Default to dark mode if not explicitly saved as light
+      if (localStorage.getItem('theme') === 'light') {
+        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.add('light');
+      } else {
+        document.documentElement.classList.add('dark');
+        document.documentElement.classList.remove('light');
+      }
+    </script>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
     <style>
@@ -53,6 +64,11 @@
         font-family: 'Inter', sans-serif;
         background-color: #0A0A0A;
         color: #FFFFFF;
+        transition: background-color 0.25s ease, color 0.25s ease;
+      }
+      html.light body {
+        background-color: #F8FAFC;
+        color: #0F172A;
       }
       /* Custom Scrollbar */
       ::-webkit-scrollbar {
@@ -71,8 +87,8 @@
     </style>
 
     <!-- include project styles (Vite will inject during dev/build too) -->
-    <script type="module" crossorigin src="/website/assets/index-D473_Uj9.js"></script>
-    <link rel="stylesheet" crossorigin href="/website/assets/index-CYMptisJ.css">
+    <script type="module" crossorigin src="/website/assets/index-CpOr0vlC.js"></script>
+    <link rel="stylesheet" crossorigin href="/website/assets/index-R5L_4RS3.css">
   </head>
   <body>
     <div id="root"></div>
